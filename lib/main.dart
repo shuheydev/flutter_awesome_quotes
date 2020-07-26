@@ -18,7 +18,6 @@ class _QuoteListState extends State<QuoteList> {
     Quote(text: '抜け出すための一番の方法は,やり抜くこと', author: 'ロバート･フロスト'),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +31,18 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: true,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes
+            .map(
+              (quote) => QuoteCard(
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                },
+              ),
+            )
+            .toList(),
       ),
     );
   }
