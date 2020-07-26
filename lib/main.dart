@@ -11,7 +11,7 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
   List<String> quotes = [
-    '誰にもノックされないのなら,新しいドアを作ろう.',//ミルトン･バール
+    '誰にもノックされないのなら,新しいドアを作ろう.', //ミルトン･バール
     '多くの場合,邪魔者は踏み台になるのだ.', //ウィリアム･プレスコット
     '抜け出すための一番の方法は,やり抜くこと', //ロバート･フロスト
   ];
@@ -23,14 +23,18 @@ class _QuoteListState extends State<QuoteList> {
       appBar: AppBar(
         title: Text(
           'Awesome Quotes',
+          style: TextStyle(fontFamily: 'NotoSerifJP'),
         ),
         backgroundColor: Colors.red,
         centerTitle: true,
       ),
       body: Column(
-        children: <Widget>[
-          
-        ],
+        children: quotes
+            .map((quote) => Text(
+                  quote,
+                  style: TextStyle(fontFamily: 'NotoSerifJP'),
+                ))
+            .toList(),
       ),
     );
   }
