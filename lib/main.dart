@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote_card.dart';
 import 'quote.dart';
 
 void main() => runApp(MaterialApp(
@@ -17,39 +18,6 @@ class _QuoteListState extends State<QuoteList> {
     Quote(text: '抜け出すための一番の方法は,やり抜くこと', author: 'ロバート･フロスト'),
   ];
 
-  Widget quoteTemplate({Quote quote}) {
-    return Card(
-      elevation: 5,
-      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
-                fontFamily: 'NotoSerifJP',
-              ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              quote.author,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
-                fontFamily: 'NotoSerifJP',
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +32,7 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: true,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
       ),
     );
   }
