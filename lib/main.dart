@@ -19,16 +19,19 @@ class _QuoteListState extends State<QuoteList> {
 
   Widget quoteTemplate({Quote quote}) {
     return Card(
+      elevation: 5,
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
               quote.text,
               style: TextStyle(
                 fontSize: 18.0,
                 color: Colors.grey[600],
+                fontFamily: 'NotoSerifJP',
               ),
             ),
             SizedBox(
@@ -39,6 +42,7 @@ class _QuoteListState extends State<QuoteList> {
               style: TextStyle(
                 fontSize: 14.0,
                 color: Colors.grey[800],
+                fontFamily: 'NotoSerifJP',
               ),
             ),
           ],
